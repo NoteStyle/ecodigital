@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoHero Digital</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- HOME PAGE -->
+<!-- ========================= -->
+
+<section id="home">
+
+    <div class="home-container">
+
+        <h1>🌍 EcoHero Digital</h1>
+
+        <p class="tagline">
+            Become an Eco Hero by sorting waste into the correct recycling bin!
+        </p>
+
+        <input
+        type="text"
+        id="playerName"
+        placeholder="Enter Your Name">
+
+        <button id="startBtn">
+            ▶ Start Game
+        </button>
+
+        <button id="howBtn">
+            📖 How To Play
+        </button>
+
+        <button id="leaderboardBtn">
+            🏆 Leaderboard
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- HOW TO PLAY -->
+<!-- ========================= -->
+
+<section id="instruction" class="hidden">
+
+<h2>📖 How To Play</h2>
+
+<div class="instruction-box">
+
+<p>✅ Drag each waste item into the correct recycling bin.</p>
+
+<p>🔵 Blue Bin = Paper</p>
+
+<p>🟠 Orange Bin = Aluminium / Can</p>
+
+<p>🟤 Brown Bin = Glass</p>
+
+<p>✔ Correct = +10 Marks</p>
+
+<p>❌ Wrong = -5 Marks</p>
+
+<p>🔥 Combo = Bonus Points</p>
+
+<p>⏰ Finish before time runs out!</p>
+
+<button id="backHome">
+Back
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- GAME PAGE -->
+<!-- ========================= -->
+
+<section id="game" class="hidden">
+
+<div class="top-bar">
+
+<div class="score">
+
+⭐ Score:
+<span id="score">
+0
+</span>
+
+</div>
+
+<div class="timer">
+
+⏰ Time:
+
+<span id="timer">
+
+60
+
+</span>
+
+</div>
+
+</div>
+
+<!-- Waste Area -->
+
+<div id="wasteArea">
+
+<!-- JavaScript will generate waste here -->
+
+</div>
+
+<!-- Recycling Bins -->
+
+<div class="bins">
+
+<div
+class="bin blue"
+data-type="paper">
+
+🟦
+
+<h3>Paper</h3>
+
+</div>
+
+<div
+class="bin orange"
+data-type="can">
+
+🟧
+
+<h3>Can</h3>
+
+</div>
+
+<div
+class="bin brown"
+data-type="glass">
+
+🟫
+
+<h3>Glass</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- RESULT PAGE -->
+<!-- ========================= -->
+
+<section id="result" class="hidden">
+
+<h2>
+
+🎉 Congratulations!
+
+</h2>
+
+<p>
+
+Player :
+
+<span id="resultName"></span>
+
+</p>
+
+<p>
+
+Final Score :
+
+<span id="finalScore"></span>
+
+</p>
+
+<p>
+
+Rank :
+
+<span id="playerRank"></span>
+
+</p>
+
+<button id="downloadCert">
+
+📜 Download Certificate
+
+</button>
+
+<button id="playAgain">
+
+🔄 Play Again
+
+</button>
+
+<button id="viewLeaderboard">
+
+🏆 Leaderboard
+
+</button>
+
+</section>
+
+<!-- ========================= -->
+<!-- LEADERBOARD -->
+<!-- ========================= -->
+
+<section id="leaderboard" class="hidden">
+
+<h2>
+
+🏆 Top EcoHeroes
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Rank</th>
+
+<th>Name</th>
+
+<th>Score</th>
+
+</tr>
+
+</thead>
+
+<tbody id="leaderboardBody">
+
+</tbody>
+
+</table>
+
+<button id="leaderboardBack">
+
+⬅ Back
+
+</button>
+
+</section>
+
+<!-- ========================= -->
+<!-- AUDIO -->
+<!-- ========================= -->
+
+<audio id="correctSound" src="sounds/correct.mp3"></audio>
+
+<audio id="wrongSound" src="sounds/wrong.mp3"></audio>
+
+<audio id="winSound" src="sounds/win.mp3"></audio>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script src="script.js"></script>
+
+<script src="leaderboard.js"></script>
+
+<script src="certificate.js"></script>
+
+</body>
+</html>
