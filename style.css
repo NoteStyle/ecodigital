@@ -1,0 +1,1093 @@
+/* ==========================================
+   EcoHero Digital v1.0
+   style.css
+   Part 1
+==========================================*/
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#e8f5e9;
+
+    overflow-x:hidden;
+
+    color:#222;
+
+}
+
+
+/* BACKGROUND */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    left:0;
+
+    top:0;
+
+    z-index:-2;
+
+    background:linear-gradient(
+    180deg,
+    #b2ebf2,
+    #e8f5e9
+    );
+
+}
+
+
+/* Floating circles */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+
+height:600px;
+
+right:-180px;
+
+top:-180px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+filter:blur(30px);
+
+z-index:-1;
+
+}
+
+
+/* =================================
+SECTION
+================================= */
+
+section{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+
+/* ==============================
+HOME
+============================== */
+
+.home-container{
+
+width:900px;
+
+max-width:95%;
+
+background:white;
+
+border-radius:30px;
+
+padding:60px;
+
+text-align:center;
+
+box-shadow:
+
+0 20px 40px rgba(0,0,0,.15);
+
+animation:fadeUp 1s;
+
+}
+
+
+/* TITLE */
+
+.home-container h1{
+
+font-size:58px;
+
+font-weight:800;
+
+color:#2E7D32;
+
+margin-bottom:15px;
+
+}
+
+
+/* TAGLINE */
+
+.tagline{
+
+font-size:20px;
+
+line-height:1.8;
+
+margin-bottom:40px;
+
+color:#666;
+
+}
+
+
+/* INPUT */
+
+#playerName{
+
+width:80%;
+
+padding:18px;
+
+font-size:18px;
+
+border:none;
+
+outline:none;
+
+border-radius:15px;
+
+background:#f5f5f5;
+
+margin-bottom:25px;
+
+transition:.3s;
+
+}
+
+#playerName:focus{
+
+background:white;
+
+border:2px solid #2E7D32;
+
+}
+
+
+/* BUTTON */
+
+button{
+
+cursor:pointer;
+
+border:none;
+
+outline:none;
+
+padding:18px 35px;
+
+font-size:18px;
+
+font-weight:600;
+
+border-radius:15px;
+
+margin:10px;
+
+transition:.3s;
+
+}
+
+
+/* Start */
+
+#startBtn{
+
+background:#2E7D32;
+
+color:white;
+
+}
+
+#startBtn:hover{
+
+background:#1b5e20;
+
+transform:translateY(-5px);
+
+box-shadow:
+
+0 10px 20px rgba(0,0,0,.2);
+
+}
+
+
+/* How */
+
+#howBtn{
+
+background:#2196F3;
+
+color:white;
+
+}
+
+#howBtn:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+/* Leaderboard */
+
+#leaderboardBtn{
+
+background:#ff9800;
+
+color:white;
+
+}
+
+#leaderboardBtn:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+/* ===========================
+Instruction
+=========================== */
+
+.instruction-box{
+
+background:white;
+
+padding:50px;
+
+border-radius:25px;
+
+width:850px;
+
+max-width:95%;
+
+box-shadow:
+
+0 20px 40px rgba(0,0,0,.15);
+
+}
+
+#instruction h2{
+
+text-align:center;
+
+font-size:42px;
+
+margin-bottom:30px;
+
+color:#2E7D32;
+
+}
+
+.instruction-box p{
+
+font-size:20px;
+
+padding:12px;
+
+border-bottom:1px solid #eee;
+
+}
+
+#backHome{
+
+margin-top:30px;
+
+background:#2E7D32;
+
+color:white;
+
+}
+
+
+/* ===========================
+TOP BAR
+=========================== */
+
+.top-bar{
+
+position:absolute;
+
+top:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:90%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+.score{
+
+background:white;
+
+padding:18px 30px;
+
+border-radius:20px;
+
+font-size:22px;
+
+font-weight:700;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.15);
+
+}
+
+
+.timer{
+
+background:#ff5252;
+
+color:white;
+
+padding:18px 30px;
+
+border-radius:20px;
+
+font-size:22px;
+
+font-weight:700;
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.15);
+
+}
+
+
+/* =======================
+Waste Area
+======================= */
+
+#wasteArea{
+
+width:95%;
+
+height:250px;
+
+margin-top:100px;
+
+background:white;
+
+border-radius:25px;
+
+box-shadow:
+
+0 15px 30px rgba(0,0,0,.1);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+padding:30px;
+
+}
+
+
+/* =======================
+Recycle Bin
+======================= */
+
+.bins{
+
+display:flex;
+
+justify-content:center;
+
+gap:40px;
+
+margin-top:50px;
+
+flex-wrap:wrap;
+
+}
+
+
+.bin{
+
+width:190px;
+
+height:220px;
+
+border-radius:25px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:65px;
+
+color:white;
+
+font-weight:700;
+
+transition:.35s;
+
+cursor:pointer;
+
+box-shadow:
+
+0 15px 25px rgba(0,0,0,.15);
+
+}
+
+.bin h3{
+
+margin-top:10px;
+
+font-size:22px;
+
+}
+
+
+/* Bin Colors */
+
+.blue{
+
+background:#2196F3;
+
+}
+
+.orange{
+
+background:#FB8C00;
+
+}
+
+.brown{
+
+background:#795548;
+
+}
+
+
+/* Hover */
+
+.bin:hover{
+
+transform:translateY(-10px) scale(1.05);
+
+}
+
+
+/* =====================
+Animation
+===================== */
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(80px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ====================
+Responsive
+==================== */
+
+@media(max-width:768px){
+
+.home-container h1{
+
+font-size:40px;
+
+}
+
+.tagline{
+
+font-size:17px;
+
+}
+
+#playerName{
+
+width:100%;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+.top-bar{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.bins{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+}
+/* ==========================================
+   EcoHero Digital
+   STYLE.CSS
+   PART 2
+==========================================*/
+
+/* ===========================
+DRAG ITEM
+===========================*/
+
+.waste-item{
+
+width:120px;
+
+height:120px;
+
+background:white;
+
+border-radius:20px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:52px;
+
+cursor:grab;
+
+user-select:none;
+
+transition:.3s;
+
+box-shadow:
+
+0 10px 20px rgba(0,0,0,.15);
+
+}
+
+.waste-item p{
+
+font-size:15px;
+
+margin-top:8px;
+
+font-weight:600;
+
+text-align:center;
+
+color:#333;
+
+}
+
+.waste-item:hover{
+
+transform:
+
+translateY(-10px)
+
+scale(1.08);
+
+box-shadow:
+
+0 18px 30px rgba(0,0,0,.25);
+
+}
+
+
+/* ketika sedang drag */
+
+.waste-item:active{
+
+cursor:grabbing;
+
+transform:scale(.95);
+
+}
+
+
+/* ===========================
+DROP ZONE
+===========================*/
+
+.bin{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+/* Highlight apabila item berada di atas tong */
+
+.bin.drag-over{
+
+border:6px dashed white;
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 30px rgba(255,255,255,.8);
+
+}
+
+
+/* ===========================
+BIN ICON
+===========================*/
+
+.bin::before{
+
+content:"🗑️";
+
+font-size:80px;
+
+margin-bottom:10px;
+
+display:block;
+
+}
+
+
+/* ===========================
+CORRECT EFFECT
+===========================*/
+
+.correct{
+
+animation:correctFlash .6s;
+
+}
+
+@keyframes correctFlash{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.12);
+
+box-shadow:
+
+0 0 35px lime;
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* ===========================
+WRONG EFFECT
+===========================*/
+
+.wrong{
+
+animation:shake .5s;
+
+}
+
+@keyframes shake{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+20%{
+
+transform:translateX(-12px);
+
+}
+
+40%{
+
+transform:translateX(12px);
+
+}
+
+60%{
+
+transform:translateX(-10px);
+
+}
+
+80%{
+
+transform:translateX(10px);
+
+}
+
+100%{
+
+transform:translateX(0);
+
+}
+
+}
+
+
+/* ===========================
+FLOATING SCORE
+===========================*/
+
+.score-popup{
+
+position:absolute;
+
+font-size:30px;
+
+font-weight:bold;
+
+pointer-events:none;
+
+animation:popup 1s forwards;
+
+}
+
+.plus{
+
+color:#2E7D32;
+
+}
+
+.minus{
+
+color:red;
+
+}
+
+@keyframes popup{
+
+0%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translateY(-80px);
+
+}
+
+}
+
+
+/* ===========================
+COMBO EFFECT
+===========================*/
+
+.combo{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+font-size:60px;
+
+font-weight:800;
+
+color:#FFD600;
+
+text-shadow:
+
+0 0 20px orange;
+
+animation:comboAnim 1s forwards;
+
+pointer-events:none;
+
+z-index:999;
+
+}
+
+@keyframes comboAnim{
+
+0%{
+
+opacity:0;
+
+transform:
+
+translate(-50%,-50%)
+
+scale(.2);
+
+}
+
+40%{
+
+opacity:1;
+
+transform:
+
+translate(-50%,-50%)
+
+scale(1.3);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+
+translate(-50%,-120%)
+
+scale(1);
+
+}
+
+}
+
+
+/* ===========================
+PROGRESS BAR
+===========================*/
+
+.progress-container{
+
+width:90%;
+
+height:20px;
+
+background:#ddd;
+
+border-radius:50px;
+
+margin:20px auto;
+
+overflow:hidden;
+
+}
+
+.progress{
+
+height:100%;
+
+width:100%;
+
+background:
+
+linear-gradient(
+90deg,
+#66bb6a,
+#2E7D32
+);
+
+transition:.3s;
+
+}
+
+
+/* ===========================
+GAME CARD
+===========================*/
+
+.game-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:25px;
+
+box-shadow:
+
+0 15px 30px rgba(0,0,0,.15);
+
+}
+
+
+/* ===========================
+LEVEL BADGE
+===========================*/
+
+.badge{
+
+position:absolute;
+
+top:20px;
+
+right:20px;
+
+padding:10px 18px;
+
+background:gold;
+
+border-radius:50px;
+
+font-weight:bold;
+
+font-size:15px;
+
+box-shadow:
+
+0 5px 15px rgba(0,0,0,.2);
+
+}
+
+
+/* ===========================
+SUCCESS GLOW
+===========================*/
+
+.glow{
+
+animation:glow .8s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+
+box-shadow:
+
+0 0 10px lime;
+
+}
+
+to{
+
+box-shadow:
+
+0 0 40px lime;
+
+}
+
+}
+
+
+/* ===========================
+RESPONSIVE
+===========================*/
+
+@media(max-width:768px){
+
+.waste-item{
+
+width:90px;
+
+height:90px;
+
+font-size:40px;
+
+}
+
+.bin{
+
+width:160px;
+
+height:190px;
+
+}
+
+.combo{
+
+font-size:35px;
+
+}
+
+}
+
+</body>
+
+</html>
