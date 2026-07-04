@@ -231,3 +231,216 @@ bins.forEach(bin=>{
     });
 
 });
+/*=====================================
+        BAHAGIAN 3B
+    DROP + SKOR + KEPUTUSAN
+======================================*/
+
+
+//=========================
+// DROP KE DALAM TONG
+//=========================
+
+bins.forEach(bin=>{
+
+    bin.addEventListener("drop",function(e){
+
+        e.preventDefault();
+
+        bin.classList.remove("drag-over");
+
+        if(selectedItem==null){
+
+            return;
+
+        }
+
+        const correctType=selectedItem.dataset.type;
+
+        const selectedBin=bin.dataset.type;
+
+
+
+        //-----------------------
+        // JAWAPAN BETUL
+        //-----------------------
+
+        if(correctType===selectedBin){
+
+            score+=10;
+
+            scoreText.innerHTML=score;
+
+            selectedItem.style.background="#b9f6ca";
+
+            selectedItem.style.border="3px solid green";
+
+            selectedItem.style.opacity=".3";
+
+            selectedItem.draggable=false;
+
+            selectedItem.style.pointerEvents="none";
+
+        }
+
+        //-----------------------
+        // JAWAPAN SALAH
+        //-----------------------
+
+        else{
+
+            selectedItem.style.background="#ffcdd2";
+
+            selectedItem.style.border="3px solid red";
+
+            setTimeout(()=>{
+
+                selectedItem.style.background="white";
+
+                selectedItem.style.border="none";
+
+            },700);
+
+        }
+
+
+
+        //-----------------------
+        // SEMAK BILANGAN
+        //-----------------------
+
+        answered++;
+
+        selectedItem=null;
+
+
+
+        if(answered===trashItems.length){
+
+            setTimeout(showResult,600);
+
+        }
+
+    });
+
+});
+
+
+
+//=========================
+// PAPAR KEPUTUSAN
+//=========================
+
+function showResult(){
+
+    gameScreen.classList.add("hidden");
+
+    resultScreen.classList.remove("hidden");
+
+    finalScore.innerHTML=score+"/100";
+
+
+
+    //-------------------------
+    // PENILAIAN
+    //-------------------------
+
+    if(score>=90){
+
+        medal.innerHTML="🥇 EcoHero Emas";
+
+    }
+
+    else if(score>=70){
+
+        medal.innerHTML="🥈 EcoHero Perak";
+
+    }
+
+    else if(score>=50){
+
+        medal.innerHTML="🥉 EcoHero Gangsa";
+
+    }
+
+    else{
+
+        medal.innerHTML="🌱 Teruskan Berlatih";
+
+    }
+
+}
+
+
+
+//=========================
+// SIJIL
+//=========================
+
+const certificateBtn=document.getElementById("certificateBtn");
+
+certificateBtn.onclick=function(){
+
+    localStorage.setItem("ecoheroName",finalName.innerHTML);
+
+    localStorage.setItem("ecoheroScore",score);
+
+    window.open("certificate.html","_blank");
+
+}
+
+
+
+//=========================
+// FUNGSI RESET
+//=========================
+
+function resetGame(){
+
+    score=0;
+
+    answered=0;
+
+    scoreText.innerHTML=0;
+
+}
+
+
+
+//=========================
+// ANIMASI TAMBAHAN
+//=========================
+
+document.querySelectorAll("button").forEach(btn=>{
+
+    btn.addEventListener("mouseover",()=>{
+
+        btn.style.boxShadow="0 10px 20px rgba(0,0,0,.25)";
+
+    });
+
+
+
+    btn.addEventListener("mouseleave",()=>{
+
+        btn.style.boxShadow="none";
+
+    });
+
+});
+
+
+
+//=========================
+// UCAPAN SELAMAT DATANG
+//=========================
+
+console.log("EcoHero Digital Loaded Successfully.");
+
+
+
+//=========================
+// VERSI
+//=========================
+
+console.log("EcoHero Digital v1.0");
