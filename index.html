@@ -1,290 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>EcoHero Digital</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+          href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- ========================= -->
-<!-- HOME PAGE -->
-<!-- ========================= -->
+    <!--========================
+        HALAMAN MULA
+    =========================-->
 
-<section id="home">
+    <section id="startScreen">
 
-    <div class="home-container">
+        <div class="card">
 
-        <h1>🌍 EcoHero Digital</h1>
+            <h1>🌱 EcoHero Digital</h1>
 
-        <p class="tagline">
-            Become an Eco Hero by sorting waste into the correct recycling bin!
-        </p>
+            <p class="subtitle">
+                Asingkan sampah ke dalam tong yang betul
+                dan jadilah Wira Alam Sekitar!
+            </p>
 
-        <input
-        type="text"
-        id="playerName"
-        placeholder="Enter Your Name">
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Masukkan Nama Anda">
 
-        <button id="startBtn">
-            ▶ Start Game
-        </button>
+            <button id="startBtn">
+                Mula Permainan
+            </button>
 
-        <button id="howBtn">
-            📖 How To Play
-        </button>
+        </div>
 
-        <button id="leaderboardBtn">
-            🏆 Leaderboard
-        </button>
+    </section>
 
-    </div>
 
-</section>
+    <!--========================
+        ARAHAN
+    =========================-->
 
-<!-- ========================= -->
-<!-- HOW TO PLAY -->
-<!-- ========================= -->
+    <section id="instructionScreen"
+             class="hidden">
 
-<section id="instruction" class="hidden">
+        <div class="card">
 
-<h2>📖 How To Play</h2>
+            <h2>Cara Bermain</h2>
 
-<div class="instruction-box">
+            <ul>
 
-<p>✅ Drag each waste item into the correct recycling bin.</p>
+                <li>Seret setiap sampah ke tong yang betul.</li>
 
-<p>🔵 Blue Bin = Paper</p>
+                <li>Setiap jawapan betul = 10 markah.</li>
 
-<p>🟠 Orange Bin = Aluminium / Can</p>
+                <li>Jawapan salah = 0 markah.</li>
 
-<p>🟤 Brown Bin = Glass</p>
+                <li>Jumlah markah maksimum ialah 100.</li>
 
-<p>✔ Correct = +10 Marks</p>
+            </ul>
 
-<p>❌ Wrong = -5 Marks</p>
+            <button id="playBtn">
+                Mula Sekarang
+            </button>
 
-<p>🔥 Combo = Bonus Points</p>
+        </div>
 
-<p>⏰ Finish before time runs out!</p>
+    </section>
 
-<button id="backHome">
-Back
-</button>
 
-</div>
+    <!--========================
+        PERMAINAN
+    =========================-->
 
-</section>
+    <section id="gameScreen"
+             class="hidden">
 
-<!-- ========================= -->
-<!-- GAME PAGE -->
-<!-- ========================= -->
+        <header>
 
-<section id="game" class="hidden">
+            <div>
 
-<div class="top-bar">
+                👤
+                <span id="displayName"></span>
 
-<div class="score">
+            </div>
 
-⭐ Score:
-<span id="score">
-0
-</span>
+            <div>
 
-</div>
+                ⭐ Skor :
 
-<div class="timer">
+                <span id="score">
 
-⏰ Time:
+                    0
 
-<span id="timer">
+                </span>
 
-60
+            </div>
 
-</span>
+        </header>
 
-</div>
 
-</div>
+        <h2 class="instruction">
 
-<!-- Waste Area -->
+            Seret sampah ke tong yang betul
 
-<div id="wasteArea">
+        </h2>
 
-<!-- JavaScript will generate waste here -->
 
-</div>
+        <!-- Sampah -->
 
-<!-- Recycling Bins -->
+        <div id="trashContainer">
 
-<div class="bins">
+        </div>
 
-<div
-class="bin blue"
-data-type="paper">
 
-🟦
+        <!-- Tong Sampah -->
 
-<h3>Paper</h3>
+        <div id="bins">
 
-</div>
+            <div class="bin blue"
+                 data-type="blue">
 
-<div
-class="bin orange"
-data-type="can">
+                🔵
 
-🟧
+                <h3>BIRU</h3>
 
-<h3>Can</h3>
+                <p>Kertas & Plastik</p>
 
-</div>
+            </div>
 
-<div
-class="bin brown"
-data-type="glass">
 
-🟫
+            <div class="bin orange"
+                 data-type="orange">
 
-<h3>Glass</h3>
+                🟠
 
-</div>
+                <h3>JINGGA</h3>
 
-</div>
+                <p>Tin & Logam</p>
 
-</section>
+            </div>
 
-<!-- ========================= -->
-<!-- RESULT PAGE -->
-<!-- ========================= -->
 
-<section id="result" class="hidden">
+            <div class="bin brown"
+                 data-type="brown">
 
-<h2>
+                🟤
 
-🎉 Congratulations!
+                <h3>COKLAT</h3>
 
-</h2>
+                <p>Kaca</p>
 
-<p>
+            </div>
 
-Player :
+        </div>
 
-<span id="resultName"></span>
+    </section>
 
-</p>
 
-<p>
 
-Final Score :
+    <!--========================
+        KEPUTUSAN
+    =========================-->
 
-<span id="finalScore"></span>
+    <section id="resultScreen"
+             class="hidden">
 
-</p>
+        <div class="card">
 
-<p>
+            <h1>
 
-Rank :
+                🎉 Tahniah!
 
-<span id="playerRank"></span>
+            </h1>
 
-</p>
+            <h2 id="finalName">
 
-<button id="downloadCert">
+            </h2>
 
-📜 Download Certificate
+            <h3>
 
-</button>
+                Markah Anda
 
-<button id="playAgain">
+            </h3>
 
-🔄 Play Again
+            <h1 id="finalScore">
 
-</button>
+                0/100
 
-<button id="viewLeaderboard">
+            </h1>
 
-🏆 Leaderboard
+            <p id="medal">
 
-</button>
+            </p>
 
-</section>
+            <button id="certificateBtn">
 
-<!-- ========================= -->
-<!-- LEADERBOARD -->
-<!-- ========================= -->
+                Muat Turun Sijil
 
-<section id="leaderboard" class="hidden">
+            </button>
 
-<h2>
+            <button onclick="location.reload()">
 
-🏆 Top EcoHeroes
+                Main Semula
 
-</h2>
+            </button>
 
-<table>
+        </div>
 
-<thead>
+    </section>
 
-<tr>
 
-<th>Rank</th>
 
-<th>Name</th>
+    <!--========================
+        SCRIPT
+    =========================-->
 
-<th>Score</th>
-
-</tr>
-
-</thead>
-
-<tbody id="leaderboardBody">
-
-</tbody>
-
-</table>
-
-<button id="leaderboardBack">
-
-⬅ Back
-
-</button>
-
-</section>
-
-<!-- ========================= -->
-<!-- AUDIO -->
-<!-- ========================= -->
-
-<audio id="correctSound" src="sounds/correct.mp3"></audio>
-
-<audio id="wrongSound" src="sounds/wrong.mp3"></audio>
-
-<audio id="winSound" src="sounds/win.mp3"></audio>
-
-<!-- ========================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================= -->
-
-<script src="script.js"></script>
-
-<script src="leaderboard.js"></script>
-
-<script src="certificate.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
